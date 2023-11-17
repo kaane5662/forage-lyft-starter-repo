@@ -50,3 +50,12 @@ class test_car_2(unittest.TestCase):
         thovex.Battery.current_date = 3
         self.assertFalse(thovex.Engine.needs_service())
         self.assertFalse(thovex.needs_service())
+
+    def test_tire_wear_Carrigan(self):
+        car1 = Car(Engine=CapuletEngine(0,0,0), Battery=NubbinBattey(0,0))
+        car1.Tires = [0.9,0.9,0.9,0.9]
+        self.assertEqual(car1.check_tire_wear(), "Octoprime")
+        car1.Tires = [0.7,.6,.9,.3]
+        self.assertEqual(car1.check_tire_wear(), "Octoprime")
+        car1.Tires = [0,.6,.80,.45]
+        self.assertFalse(car1.check_tire_wear(), "Octoprime")
